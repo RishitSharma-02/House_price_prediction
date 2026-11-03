@@ -2,9 +2,12 @@ import streamlit as st
 import pickle
 import numpy as np
 import pandas as pd
+from pathlib import Path
 
 # load the model
-with open ('house_price_model.pkl', 'rb')as file:
+BASE_DIR = Path(__file__).resolve().parent
+
+with open(BASE_DIR / 'house_price_model.pkl', 'rb') as file:
     model, scaler = pickle.load(file)
 
 st.title("House price Prediction")
